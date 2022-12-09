@@ -1,0 +1,520 @@
+{
+	"info": {
+		"_postman_id": "b53b3303-afd6-43f7-bca1-8f79575e8be6",
+		"name": "Github",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22892009"
+	},
+	"item": [
+		{
+			"name": "Get",
+			"item": [
+				{
+					"name": "Get User Repositorio Not Found",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"user\", \"ivn4\");\r",
+									"pm.collectionVariables.set(\"repo\", \"loremipsumBRBR\");\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", () => {\r",
+									"  pm.expect(pm.response.code).to.eql(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"ID expected was returned\", () => {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.message).to.eql('Not Found');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/repos/{{user}}/{{repo}}",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"repos",
+								"{{user}}",
+								"{{repo}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"user\", \"ivn4\");\r",
+									"pm.globals.set('id', 105386758);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {\r",
+									"  pm.expect(pm.response.code).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"ID expected was returned\", () => {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.id).to.eql(pm.globals.get('id'));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/users/{{user}}",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"users",
+								"{{user}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Not Found",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"user\", \"loremipsumBRBR\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", () => {\r",
+									"  pm.expect(pm.response.code).to.eql(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"ID expected was returned\", () => {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.message).to.eql('Not Found');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/users/{{user}}",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"users",
+								"{{user}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Repositorio",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"user\", \"ivn4\");\r",
+									"pm.collectionVariables.set(\"repo\", \"cnn-cypress\");\r",
+									"pm.globals.set('id', 576072196);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {\r",
+									"  pm.expect(pm.response.code).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"ID expected was returned\", () => {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.id).to.eql(pm.globals.get('id'));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/repos/{{user}}/{{repo}}",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"repos",
+								"{{user}}",
+								"{{repo}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Post Repositorio",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"name_repo\", \"bbillie-eilish\");\r",
+									"pm.collectionVariables.set(\"user\", \"ivn4\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", () => {\r",
+									"  pm.expect(pm.response.code).to.eql(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Repository name is correct\", () => {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.name).to.eql(pm.collectionVariables.get('name_repo'));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Full repository name is correct\", () => {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.full_name).to.eql(pm.collectionVariables.get('user')+\"/\"+pm.collectionVariables.get('name_repo'));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "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",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"node_id\": \"R_kgDOIlaAYQ\",\r\n    \"name\": \"billie-eilish\",\r\n    \"full_name\": \"ivn4/billie-eilish\",\r\n    \"private\": false,\r\n    \"owner\": {\r\n        \"login\": \"ivn4\",\r\n        \"id\": 105386758,\r\n        \"node_id\": \"U_kgDOBkgTBg\",\r\n        \"avatar_url\": \"https://avatars.githubusercontent.com/u/105386758?v=4\",\r\n        \"gravatar_id\": \"\",\r\n        \"url\": \"https://api.github.com/users/ivn4\",\r\n        \"html_url\": \"https://github.com/ivn4\",\r\n        \"followers_url\": \"https://api.github.com/users/ivn4/followers\",\r\n        \"following_url\": \"https://api.github.com/users/ivn4/following{/other_user}\",\r\n        \"gists_url\": \"https://api.github.com/users/ivn4/gists{/gist_id}\",\r\n        \"starred_url\": \"https://api.github.com/users/ivn4/starred{/owner}{/repo}\",\r\n        \"subscriptions_url\": \"https://api.github.com/users/ivn4/subscriptions\",\r\n        \"organizations_url\": \"https://api.github.com/users/ivn4/orgs\",\r\n        \"repos_url\": \"https://api.github.com/users/ivn4/repos\",\r\n        \"events_url\": \"https://api.github.com/users/ivn4/events{/privacy}\",\r\n        \"received_events_url\": \"https://api.github.com/users/ivn4/received_events\",\r\n        \"type\": \"User\",\r\n        \"site_admin\": false\r\n    },\r\n    \"html_url\": \"https://github.com/ivn4/billie\",\r\n    \"description\": null,\r\n    \"fork\": false,\r\n    \"url\": \"https://api.github.com/repos/ivn4/billie\",\r\n    \"forks_url\": \"https://api.github.com/repos/ivn4/billie/forks\",\r\n    \"keys_url\": \"https://api.github.com/repos/ivn4/billie/keys{/key_id}\",\r\n    \"collaborators_url\": \"https://api.github.com/repos/ivn4/billie/collaborators{/collaborator}\",\r\n    \"teams_url\": \"https://api.github.com/repos/ivn4/billie/teams\",\r\n    \"hooks_url\": \"https://api.github.com/repos/ivn4/billie/hooks\",\r\n    \"issue_events_url\": \"https://api.github.com/repos/ivn4/billie/issues/events{/number}\",\r\n    \"events_url\": \"https://api.github.com/repos/ivn4/billie/events\",\r\n    \"assignees_url\": \"https://api.github.com/repos/ivn4/billie/assignees{/user}\",\r\n    \"branches_url\": \"https://api.github.com/repos/ivn4/billie/branches{/branch}\",\r\n    \"tags_url\": \"https://api.github.com/repos/ivn4/billie/tags\",\r\n    \"blobs_url\": \"https://api.github.com/repos/ivn4/billie/git/blobs{/sha}\",\r\n    \"git_tags_url\": \"https://api.github.com/repos/ivn4/billie/git/tags{/sha}\",\r\n    \"git_refs_url\": \"https://api.github.com/repos/ivn4/billie/git/refs{/sha}\",\r\n    \"trees_url\": \"https://api.github.com/repos/ivn4/billie/git/trees{/sha}\",\r\n    \"statuses_url\": \"https://api.github.com/repos/ivn4/billie/statuses/{sha}\",\r\n    \"languages_url\": \"https://api.github.com/repos/ivn4/billie/languages\",\r\n    \"stargazers_url\": \"https://api.github.com/repos/ivn4/billie/stargazers\",\r\n    \"contributors_url\": \"https://api.github.com/repos/ivn4/billie/contributors\",\r\n    \"subscribers_url\": \"https://api.github.com/repos/ivn4/billie/subscribers\",\r\n    \"subscription_url\": \"https://api.github.com/repos/ivn4/billie/subscription\",\r\n    \"commits_url\": \"https://api.github.com/repos/ivn4/billie/commits{/sha}\",\r\n    \"git_commits_url\": \"https://api.github.com/repos/ivn4/billie/git/commits{/sha}\",\r\n    \"comments_url\": \"https://api.github.com/repos/ivn4/billie/comments{/number}\",\r\n    \"issue_comment_url\": \"https://api.github.com/repos/ivn4/billie/issues/comments{/number}\",\r\n    \"contents_url\": \"https://api.github.com/repos/ivn4/billie/contents/{+path}\",\r\n    \"compare_url\": \"https://api.github.com/repos/ivn4/billie/compare/{base}...{head}\",\r\n    \"merges_url\": \"https://api.github.com/repos/ivn4/billie/merges\",\r\n    \"archive_url\": \"https://api.github.com/repos/ivn4/billie/{archive_format}{/ref}\",\r\n    \"downloads_url\": \"https://api.github.com/repos/ivn4/billie/downloads\",\r\n    \"issues_url\": \"https://api.github.com/repos/ivn4/billie/issues{/number}\",\r\n    \"pulls_url\": \"https://api.github.com/repos/ivn4/billie/pulls{/number}\",\r\n    \"milestones_url\": \"https://api.github.com/repos/ivn4/billie/milestones{/number}\",\r\n    \"notifications_url\": \"https://api.github.com/repos/ivn4/billie/notifications{?since,all,participating}\",\r\n    \"labels_url\": \"https://api.github.com/repos/ivn4/billie/labels{/name}\",\r\n    \"releases_url\": \"https://api.github.com/repos/ivn4/billie/releases{/id}\",\r\n    \"deployments_url\": \"https://api.github.com/repos/ivn4/billie/deployments\",\r\n    \"created_at\": \"2022-12-09T01:55:40Z\",\r\n    \"updated_at\": \"2022-12-09T01:55:40Z\",\r\n    \"pushed_at\": \"2022-12-09T01:55:40Z\",\r\n    \"git_url\": \"git://github.com/ivn4/billie.git\",\r\n    \"ssh_url\": \"git@github.com:ivn4/billie.git\",\r\n    \"clone_url\": \"https://github.com/ivn4/billie.git\",\r\n    \"svn_url\": \"https://github.com/ivn4/billie\",\r\n    \"homepage\": null,\r\n    \"size\": 0,\r\n    \"stargazers_count\": 0,\r\n    \"watchers_count\": 0,\r\n    \"language\": null,\r\n    \"has_issues\": true,\r\n    \"has_projects\": true,\r\n    \"has_downloads\": true,\r\n    \"has_wiki\": true,\r\n    \"has_pages\": false,\r\n    \"has_discussions\": false,\r\n    \"forks_count\": 0,\r\n    \"mirror_url\": null,\r\n    \"archived\": false,\r\n    \"disabled\": false,\r\n    \"open_issues_count\": 0,\r\n    \"license\": null,\r\n    \"allow_forking\": true,\r\n    \"is_template\": false,\r\n    \"web_commit_signoff_required\": false,\r\n    \"topics\": [],\r\n    \"visibility\": \"public\",\r\n    \"forks\": 0,\r\n    \"open_issues\": 0,\r\n    \"watchers\": 0,\r\n    \"default_branch\": \"main\",\r\n    \"permissions\": {\r\n        \"admin\": true,\r\n        \"maintain\": true,\r\n        \"push\": true,\r\n        \"triage\": true,\r\n        \"pull\": true\r\n    },\r\n    \"allow_squash_merge\": true,\r\n    \"allow_merge_commit\": true,\r\n    \"allow_rebase_merge\": true,\r\n    \"allow_auto_merge\": false,\r\n    \"delete_branch_on_merge\": false,\r\n    \"allow_update_branch\": false,\r\n    \"use_squash_pr_title_as_default\": false,\r\n    \"squash_merge_commit_message\": \"COMMIT_MESSAGES\",\r\n    \"squash_merge_commit_title\": \"COMMIT_OR_PR_TITLE\",\r\n    \"merge_commit_message\": \"PR_TITLE\",\r\n    \"merge_commit_title\": \"MERGE_MESSAGE\",\r\n    \"network_count\": 0,\r\n    \"subscribers_count\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/user/repos",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"user",
+								"repos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Repositorio Already Exist",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"name_repo\", \"cnn-cypress\");\r",
+									"pm.collectionVariables.set(\"user\", \"ivn4\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 422\", () => {\r",
+									"  pm.expect(pm.response.code).to.eql(422);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Error message correct\", () => {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.errors[0].message).to.eql('name already exists on this account');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "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",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"node_id\": \"R_kgDOIlaAYQ\",\r\n    \"name\": \"billie-eilish\",\r\n    \"full_name\": \"ivn4/billie-eilish\",\r\n    \"private\": false,\r\n    \"owner\": {\r\n        \"login\": \"ivn4\",\r\n        \"id\": 105386758,\r\n        \"node_id\": \"U_kgDOBkgTBg\",\r\n        \"avatar_url\": \"https://avatars.githubusercontent.com/u/105386758?v=4\",\r\n        \"gravatar_id\": \"\",\r\n        \"url\": \"https://api.github.com/users/ivn4\",\r\n        \"html_url\": \"https://github.com/ivn4\",\r\n        \"followers_url\": \"https://api.github.com/users/ivn4/followers\",\r\n        \"following_url\": \"https://api.github.com/users/ivn4/following{/other_user}\",\r\n        \"gists_url\": \"https://api.github.com/users/ivn4/gists{/gist_id}\",\r\n        \"starred_url\": \"https://api.github.com/users/ivn4/starred{/owner}{/repo}\",\r\n        \"subscriptions_url\": \"https://api.github.com/users/ivn4/subscriptions\",\r\n        \"organizations_url\": \"https://api.github.com/users/ivn4/orgs\",\r\n        \"repos_url\": \"https://api.github.com/users/ivn4/repos\",\r\n        \"events_url\": \"https://api.github.com/users/ivn4/events{/privacy}\",\r\n        \"received_events_url\": \"https://api.github.com/users/ivn4/received_events\",\r\n        \"type\": \"User\",\r\n        \"site_admin\": false\r\n    },\r\n    \"html_url\": \"https://github.com/ivn4/billie\",\r\n    \"description\": null,\r\n    \"fork\": false,\r\n    \"url\": \"https://api.github.com/repos/ivn4/billie\",\r\n    \"forks_url\": \"https://api.github.com/repos/ivn4/billie/forks\",\r\n    \"keys_url\": \"https://api.github.com/repos/ivn4/billie/keys{/key_id}\",\r\n    \"collaborators_url\": \"https://api.github.com/repos/ivn4/billie/collaborators{/collaborator}\",\r\n    \"teams_url\": \"https://api.github.com/repos/ivn4/billie/teams\",\r\n    \"hooks_url\": \"https://api.github.com/repos/ivn4/billie/hooks\",\r\n    \"issue_events_url\": \"https://api.github.com/repos/ivn4/billie/issues/events{/number}\",\r\n    \"events_url\": \"https://api.github.com/repos/ivn4/billie/events\",\r\n    \"assignees_url\": \"https://api.github.com/repos/ivn4/billie/assignees{/user}\",\r\n    \"branches_url\": \"https://api.github.com/repos/ivn4/billie/branches{/branch}\",\r\n    \"tags_url\": \"https://api.github.com/repos/ivn4/billie/tags\",\r\n    \"blobs_url\": \"https://api.github.com/repos/ivn4/billie/git/blobs{/sha}\",\r\n    \"git_tags_url\": \"https://api.github.com/repos/ivn4/billie/git/tags{/sha}\",\r\n    \"git_refs_url\": \"https://api.github.com/repos/ivn4/billie/git/refs{/sha}\",\r\n    \"trees_url\": \"https://api.github.com/repos/ivn4/billie/git/trees{/sha}\",\r\n    \"statuses_url\": \"https://api.github.com/repos/ivn4/billie/statuses/{sha}\",\r\n    \"languages_url\": \"https://api.github.com/repos/ivn4/billie/languages\",\r\n    \"stargazers_url\": \"https://api.github.com/repos/ivn4/billie/stargazers\",\r\n    \"contributors_url\": \"https://api.github.com/repos/ivn4/billie/contributors\",\r\n    \"subscribers_url\": \"https://api.github.com/repos/ivn4/billie/subscribers\",\r\n    \"subscription_url\": \"https://api.github.com/repos/ivn4/billie/subscription\",\r\n    \"commits_url\": \"https://api.github.com/repos/ivn4/billie/commits{/sha}\",\r\n    \"git_commits_url\": \"https://api.github.com/repos/ivn4/billie/git/commits{/sha}\",\r\n    \"comments_url\": \"https://api.github.com/repos/ivn4/billie/comments{/number}\",\r\n    \"issue_comment_url\": \"https://api.github.com/repos/ivn4/billie/issues/comments{/number}\",\r\n    \"contents_url\": \"https://api.github.com/repos/ivn4/billie/contents/{+path}\",\r\n    \"compare_url\": \"https://api.github.com/repos/ivn4/billie/compare/{base}...{head}\",\r\n    \"merges_url\": \"https://api.github.com/repos/ivn4/billie/merges\",\r\n    \"archive_url\": \"https://api.github.com/repos/ivn4/billie/{archive_format}{/ref}\",\r\n    \"downloads_url\": \"https://api.github.com/repos/ivn4/billie/downloads\",\r\n    \"issues_url\": \"https://api.github.com/repos/ivn4/billie/issues{/number}\",\r\n    \"pulls_url\": \"https://api.github.com/repos/ivn4/billie/pulls{/number}\",\r\n    \"milestones_url\": \"https://api.github.com/repos/ivn4/billie/milestones{/number}\",\r\n    \"notifications_url\": \"https://api.github.com/repos/ivn4/billie/notifications{?since,all,participating}\",\r\n    \"labels_url\": \"https://api.github.com/repos/ivn4/billie/labels{/name}\",\r\n    \"releases_url\": \"https://api.github.com/repos/ivn4/billie/releases{/id}\",\r\n    \"deployments_url\": \"https://api.github.com/repos/ivn4/billie/deployments\",\r\n    \"created_at\": \"2022-12-09T01:55:40Z\",\r\n    \"updated_at\": \"2022-12-09T01:55:40Z\",\r\n    \"pushed_at\": \"2022-12-09T01:55:40Z\",\r\n    \"git_url\": \"git://github.com/ivn4/billie.git\",\r\n    \"ssh_url\": \"git@github.com:ivn4/billie.git\",\r\n    \"clone_url\": \"https://github.com/ivn4/billie.git\",\r\n    \"svn_url\": \"https://github.com/ivn4/billie\",\r\n    \"homepage\": null,\r\n    \"size\": 0,\r\n    \"stargazers_count\": 0,\r\n    \"watchers_count\": 0,\r\n    \"language\": null,\r\n    \"has_issues\": true,\r\n    \"has_projects\": true,\r\n    \"has_downloads\": true,\r\n    \"has_wiki\": true,\r\n    \"has_pages\": false,\r\n    \"has_discussions\": false,\r\n    \"forks_count\": 0,\r\n    \"mirror_url\": null,\r\n    \"archived\": false,\r\n    \"disabled\": false,\r\n    \"open_issues_count\": 0,\r\n    \"license\": null,\r\n    \"allow_forking\": true,\r\n    \"is_template\": false,\r\n    \"web_commit_signoff_required\": false,\r\n    \"topics\": [],\r\n    \"visibility\": \"public\",\r\n    \"forks\": 0,\r\n    \"open_issues\": 0,\r\n    \"watchers\": 0,\r\n    \"default_branch\": \"main\",\r\n    \"permissions\": {\r\n        \"admin\": true,\r\n        \"maintain\": true,\r\n        \"push\": true,\r\n        \"triage\": true,\r\n        \"pull\": true\r\n    },\r\n    \"allow_squash_merge\": true,\r\n    \"allow_merge_commit\": true,\r\n    \"allow_rebase_merge\": true,\r\n    \"allow_auto_merge\": false,\r\n    \"delete_branch_on_merge\": false,\r\n    \"allow_update_branch\": false,\r\n    \"use_squash_pr_title_as_default\": false,\r\n    \"squash_merge_commit_message\": \"COMMIT_MESSAGES\",\r\n    \"squash_merge_commit_title\": \"COMMIT_OR_PR_TITLE\",\r\n    \"merge_commit_message\": \"PR_TITLE\",\r\n    \"merge_commit_title\": \"MERGE_MESSAGE\",\r\n    \"network_count\": 0,\r\n    \"subscribers_count\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/user/repos",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"user",
+								"repos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Fork",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"name_repo\", \"autoracao-multimidia-II\");\r",
+									"pm.collectionVariables.set(\"user\", \"ivn4\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", () => {\r",
+									"  pm.expect(pm.response.code).to.eql(202);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Repository name is correct\", () => {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.name).to.eql(pm.collectionVariables.get('name_repo'));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Full repository name is correct\", () => {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.full_name).to.eql(pm.collectionVariables.get('user')+\"/\"+pm.collectionVariables.get('name_repo'));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "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",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"autoracao-multimidia-II\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/repos/:owner/:repo/forks",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"repos",
+								":owner",
+								":repo",
+								"forks"
+							],
+							"variable": [
+								{
+									"key": "owner",
+									"value": "maxxsz"
+								},
+								{
+									"key": "repo",
+									"value": "autoracao-multimidia-II"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Fork Not Found",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"name_repo\", \"autoracao-multimidia-II\");\r",
+									"pm.collectionVariables.set(\"user\", \"ivn4\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", () => {\r",
+									"  pm.expect(pm.response.code).to.eql(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Error message correct\", () => {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.message).to.eql('Not Found');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "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",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"billie-eilish\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/repos/:owner/:repo/forks",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"repos",
+								":owner",
+								":repo",
+								"forks"
+							],
+							"variable": [
+								{
+									"key": "owner",
+									"value": "maxxsz"
+								},
+								{
+									"key": "repo",
+									"value": "billie-eilish"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "user",
+			"value": ""
+		},
+		{
+			"key": "repo",
+			"value": ""
+		},
+		{
+			"key": "name_repo",
+			"value": ""
+		},
+		{
+			"key": "id",
+			"value": ""
+		}
+	]
+}
